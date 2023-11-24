@@ -4,9 +4,16 @@
   "description": "",
   "main": "holamundo.js",
   "scripts": {
+    "start": "node holamundo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hola-mundo-nodejs": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
