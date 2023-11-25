@@ -1,5 +1,5 @@
 const isLogged = (req, res, next) => {
-    let logged = false
+    let logged = true
     if (logged == true){
         next()
     }else{
