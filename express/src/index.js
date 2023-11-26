@@ -1,9 +1,14 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const port = 3000
 const user = require('./routes/users')
 const loggedMiddleware = require('./middlewares/logged')
+
+//settings
+app.set('title', 'aplicacion hecha en node')
+app.set('port', 3000)
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, './views'))
 
 //middlewares
 app.use(loggedMiddleware.isLogged)
@@ -12,12 +17,11 @@ console.log(__dirname)
 
 // rutas
 app.get('/', (req, res) =>{
-    res.send('bienvenido')
+    res.render('index')
 })
 
-app.use('/user',user)
+app.use('/users',user)
 
-app.listen(port, () => {
-    console.log(`aplicacion corriendo en el puerto: ${port}`)
+app.listen(app.get('port'), () => {
+    console.log(`Mi aplicacion ${app.get('title')} corriendo en: http://localhost:${app.get('port')}`)
 })
-
